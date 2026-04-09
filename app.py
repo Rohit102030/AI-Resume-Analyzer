@@ -164,7 +164,7 @@ if uploaded_file:
 # /*import google.generativeai as genai
 
 # # 🔑 API KEY
-# genai.configure(api_key="AIzaSyAKlz40lBQMDv2F_9t2t_S75SFwjbzX2zE")
+# genai.configure(api_key="YOUR_API_KEY")
 
 # model = genai.GenerativeModel("gemini-1.5-flash-latest")
 
