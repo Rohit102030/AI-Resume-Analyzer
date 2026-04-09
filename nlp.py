@@ -1,18 +1,5 @@
-import spacy
-
-try:
-    nlp = spacy.load("en_core_web_sm")
-except:
-    from spacy.cli import download
-    download("en_core_web_sm")
-    nlp = spacy.load("en_core_web_sm")
-
 def clean_text(text):
-    doc = nlp(text)
-    tokens = []
-
-    for token in doc:
-        if not token.is_stop and token.is_alpha:
-            tokens.append(token.lemma_)
-
-    return " ".join(tokens)
+    text = text.lower()
+    text = text.replace("\n", " ")
+    text = text.replace("\r", " ")
+    return text
