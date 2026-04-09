@@ -103,7 +103,47 @@ if uploaded_file:
 
         predicted_job = predict_job(cleaned_text)
         rule_job = recommend_job(text)
-        score = min(len(cleaned_text.split()) // 5, 100)
+        # 🔥 ADVANCED ATS SCORING
+
+score = 0
+text_lower = text.lower()
+
+# 🎯 1. SKILLS MATCH (40 marks)
+skills = ["python", "java", "sql", "machine learning", "data science",
+          "html", "css", "javascript", "react", "node"]
+
+skill_score = sum(1 for skill in skills if skill in text_lower) * 4
+score += min(skill_score, 40)
+
+# 📄 2. PROJECTS SECTION (15 marks)
+if "project" in text_lower:
+    score += 15
+
+# 💼 3. EXPERIENCE SECTION (15 marks)
+if "experience" in text_lower or "internship" in text_lower:
+    score += 15
+
+# 🏆 4. EDUCATION SECTION (10 marks)
+if "btech" in text_lower or "degree" in text_lower:
+    score += 10
+
+# 📊 5. RESUME LENGTH (20 marks)
+length = len(text.split())
+if length > 300:
+    score += 20
+elif length > 200:
+    score += 15
+elif length > 100:
+    score += 10
+else:
+    score += 5
+
+# 🔒 FINAL LIMIT
+score = min(score, 100)
+st.subheader("📊 Score Breakdown")
+st.write(f"Skills Score: {skill_score}/40")
+st.write("Projects: ✔️" if "project" in text_lower else "Projects: ❌")
+st.write("Experience: ✔️" if "experience" in text_lower else "Experience: ❌")
 
         st.markdown("### 🤖 AI Predicted Role")
         st.success(predicted_job)
