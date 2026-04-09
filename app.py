@@ -145,13 +145,13 @@ st.write(f"Skills Score: {skill_score}/40")
 st.write("Projects: ✔️" if "project" in text_lower else "Projects: ❌")
 st.write("Experience: ✔️" if "experience" in text_lower else "Experience: ❌")
 
-        st.markdown("### 🤖 AI Predicted Role")
-        st.success(predicted_job)
+st.markdown("### 🤖 AI Predicted Role")
+st.success(predicted_job)
 
-        st.markdown("### 💼 Suggested Role")
-        st.info(rule_job)
+st.markdown("### 💼 Suggested Role")
+st.info(rule_job)
 
-        st.markdown("### 📊 Resume Score")
+st.markdown("### 📊 Resume Score")
 
         # 🔥 Animated progress
         progress_bar = st.progress(0)
