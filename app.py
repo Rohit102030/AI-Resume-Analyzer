@@ -234,13 +234,13 @@ if uploaded_file:
         file_name="analysis.txt"
     )
 
-load_dotenv()
+
 
    # 🤖 GROQ CHATBOT
 from groq import Groq
 
 # 🔑 API KEY
-client = Groq(api_key=os.getenv("GROQ_API_KEY"))
+client = Groq(api_key = st.secrets["GROQ_API_KEY"])
 
 # CHATBOT UI
 st.markdown('<div class="card">', unsafe_allow_html=True)
