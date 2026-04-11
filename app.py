@@ -4,7 +4,6 @@ from nlp import clean_text
 from model import predict_job
 from recommender import recommend_job
 import os
-from dotenv import load_dotenv
 from groq import Groq
 
 def remove_projects_section(text):
