@@ -255,7 +255,7 @@ for msg in st.session_state.chat_history:
     else:
         st.markdown(f"🤖 {msg['content']}")
 
-user_input = st.text_input("Ask about your resume or career:")
+user_input = st.text_input("Ask about your resume:")
 
 if st.button("Send Chat"):
     if user_input:
